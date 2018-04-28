@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import City from './City'
 import Activity from './Activity'
 import {Navbar} from './components'
@@ -18,7 +18,7 @@ class App extends React.Component {
     }
     return (
       <BrowserRouter>
-        <Switch>
+        <div>
           <Navbar {...childrenProps} />
           <Route
             path="/city/:city"
@@ -28,7 +28,7 @@ class App extends React.Component {
             path="/activity/<activity>"
             render={props => <Activity {...props} {...childrenProps} />}
           />
-        </Switch>
+        </div>
       </BrowserRouter>
     )
   }
