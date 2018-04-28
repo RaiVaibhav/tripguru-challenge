@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import City from './City'
 import Activity from './Activity'
+import {Navbar} from './components'
 import './styles/index.css'
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
+          <Navbar {...childrenProps} />
           <Route
             path="/city/:city"
             render={props => <City {...props} {...childrenProps} />}
