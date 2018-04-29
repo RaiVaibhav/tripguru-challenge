@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {ActivityCard} from './components'
 
 export default class City extends React.Component {
   fetchCityBlob = async () => {
@@ -45,14 +46,3 @@ export default class City extends React.Component {
   }
 }
 
-const ActivityCard = ({imgSrc, index, title, ...props}) => (
-  <div {...props}>
-    <img
-      src={`https://res.cloudinary.com/thetripguru/image/upload/h_160,q_90,w_500/${imgSrc}.jpg`}
-      alt="activity preview"
-    />
-    <p>
-      {index}: {title}
-    </p>
-  </div>
-)

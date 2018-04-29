@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {ActivityExpanded} from './components'
 
 export default class Activity extends React.Component {
   state = {}
@@ -28,13 +29,3 @@ export default class Activity extends React.Component {
   }
 }
 
-const ActivityExpanded = ({imgSrc, description, title}) => (
-  <div>
-    <img
-      src={`https://res.cloudinary.com/thetripguru/image/upload/h_160,q_90,w_500/${imgSrc}.jpg`}
-      alt="activity preview"
-    />
-    <p> {title} </p>
-    <p> {description} </p>
-  </div>
-)
