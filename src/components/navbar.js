@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Grid, Row, Column, Button, Colors } from 'react-foundation'
 
 export default class Navbar extends React.Component {
   state = {cityName: ''}
@@ -25,15 +26,26 @@ export default class Navbar extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="enter city name"
-          value={this.state.cityName}
-          onChange={event => this.setState({cityName: event.target.value})}
-        />
-        <button onClick={this.handleSubmit}>
-            go to city
-        </button>
+        <Grid className="navbar">
+          <Column small={3} />
+          <Column small={4}>
+              <input
+                type="text"
+                placeholder="enter city name"
+                value={this.state.cityName}
+                onChange={event => this.setState({cityName: event.target.value})}
+              />
+          </Column>
+          <Column small={2}>
+              <Button 
+                onClick={this.handleSubmit}
+                color={Colors.INFO}
+              >
+                  go to city
+              </Button>
+          </Column>
+          <Column small={3} />
+        </Grid>
       </form>
     )
   }
