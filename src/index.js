@@ -19,7 +19,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <Navbar {...childrenProps} />
+          <Route
+            render={props =><Navbar {...props} {...childrenProps} />}
+          />
           <Route
             path="/city/:city"
             render={props => <City {...props} {...childrenProps} />}

@@ -1,13 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import axios from 'axios'
 
 export default class Navbar extends React.Component {
   state = {cityName: ''}
 
   handleSubmit = event => {
+    event.preventDefault()
     const cityName = this.state.cityName.replace(' ', '-')
-    console.log('requesting the location', cityName)
     const locationUrl = `http://tour.api.thetripguru.com/tours?filter[location.url]=${cityName}&limit=15&offset=1`
     axios.get(locationUrl).then(response => {
       const responseData = response.data
@@ -16,6 +15,7 @@ export default class Navbar extends React.Component {
           cityName: cityName,
           cityBlob: responseData,
         })
+          this.props.history.push(`/city/${this.state.cityName.replace(' ', '-')}`)
       } else {
         console.log('probably city name is not valid')
       }
@@ -24,7 +24,7 @@ export default class Navbar extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => e.preventDefault()}>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="enter city name"
@@ -32,9 +32,7 @@ export default class Navbar extends React.Component {
           onChange={event => this.setState({cityName: event.target.value})}
         />
         <button onClick={this.handleSubmit}>
-          <Link to={`/city/${this.state.cityName.replace(' ', '-')}`}>
             go to city
-          </Link>
         </button>
       </form>
     )

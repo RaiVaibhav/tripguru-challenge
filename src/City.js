@@ -32,6 +32,7 @@ export default class City extends React.Component {
           {this.props.cityBlob &&
             this.props.cityBlob.data.map((activity, index) => (
               <ActivityCard
+                key={index}
                 imgSrc={activity.attributes.media.banners[0].src}
                 index={index}
                 title={activity.attributes.title}
@@ -48,7 +49,7 @@ const ActivityCard = ({imgSrc, index, title, ...props}) => (
   <div {...props}>
     <img
       src={`https://res.cloudinary.com/thetripguru/image/upload/h_160,q_90,w_500/${imgSrc}.jpg`}
-      alt="activity image"
+      alt="activity preview"
     />
     <p>
       {index}: {title}
