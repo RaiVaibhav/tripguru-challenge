@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Grid, Column } from 'react-foundation'
 import {ActivityCard} from './components'
 
 export default class City extends React.Component {
@@ -27,21 +28,27 @@ export default class City extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello {this.props.cityName}</h1>
-        <div>
-          {this.props.cityBlob &&
-            this.props.cityBlob.data.map((activity, index) => (
-              <ActivityCard
-                key={index}
-                imgSrc={activity.attributes.media.banners[0].src}
-                index={index}
-                title={activity.attributes.title}
-                onClick={event => this.handleActivityClick(event, activity.id)}
-              />
-            ))}
-        </div>
-      </div>
+      <Grid>
+        <Column small={2} />
+        <Column small={8}>
+          <h1>Hello {this.props.cityName}</h1>
+          <Grid>
+            {this.props.cityBlob &&
+              this.props.cityBlob.data.map((activity, index) => (
+                <Column small={6}>
+                  <ActivityCard
+                    key={index}
+                    imgSrc={activity.attributes.media.banners[0].src}
+                    index={index+1}
+                    title={activity.attributes.title}
+                    onClick={event => this.handleActivityClick(event, activity.id)}
+                  />
+                </Column>
+              ))}
+          </Grid>
+        </Column>
+        <Column small={2} />
+      </Grid>
     )
   }
 }
