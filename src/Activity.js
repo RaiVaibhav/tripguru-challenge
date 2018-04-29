@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Grid, Column } from 'react-foundation'
-import {ActivityExpanded} from './components'
+import {ActivityExpanded, Fade} from './components'
 
 export default class Activity extends React.Component {
   state = {}
@@ -22,11 +22,13 @@ export default class Activity extends React.Component {
       <Grid>
         <Column small={2} />
         <Column small={8}>
-          <ActivityExpanded
-            imgSrc={this.state.activityBlob.data.attributes.media.banners[0].src}
-            title={this.state.activityBlob.data.attributes.title}
-            description={this.state.activityBlob.data.attributes.description}
-          />
+          <Fade>
+            <ActivityExpanded
+              imgSrc={this.state.activityBlob.data.attributes.media.banners[0].src}
+              title={this.state.activityBlob.data.attributes.title}
+              description={this.state.activityBlob.data.attributes.description}
+            />
+          </Fade>
         </Column>
         <Column small={2} />
       </Grid>
