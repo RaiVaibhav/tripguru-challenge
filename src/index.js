@@ -25,7 +25,7 @@ class App extends React.Component {
             render={props => <City {...props} {...childrenProps} />}
           />
           <Route
-            path="/activity/<activity>"
+            path="/activity/:activity"
             render={props => <Activity {...props} {...childrenProps} />}
           />
         </div>

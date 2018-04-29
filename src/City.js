@@ -28,9 +28,6 @@ export default class City extends React.Component {
     return (
       <div>
         <h1>Hello {this.props.cityName}</h1>
-        <p>
-          {this.props.cityBlob && JSON.stringify(this.props.cityBlob.data[0].id)}
-        </p>
         <div>
           {this.props.cityBlob &&
             this.props.cityBlob.data.map((activity, index) => (
@@ -47,16 +44,14 @@ export default class City extends React.Component {
   }
 }
 
-const ActivityCard = props => {
-  const {imgSrc, index, title, ...otherProps} = props
-  return (
-    <div {...otherProps}>
-      <img
-        src={`https://res.cloudinary.com/thetripguru/image/upload/h_160,q_90,w_500/${imgSrc}.jpg`}
-      />
-      <p>
-        {index}: {title}
-      </p>
-    </div>
-  )
-}
+const ActivityCard = ({imgSrc, index, title, ...props}) => (
+  <div {...props}>
+    <img
+      src={`https://res.cloudinary.com/thetripguru/image/upload/h_160,q_90,w_500/${imgSrc}.jpg`}
+      alt="activity image"
+    />
+    <p>
+      {index}: {title}
+    </p>
+  </div>
+)
