@@ -40,7 +40,7 @@ export default class City extends React.Component {
                 <Column small={6} key={index}>
                   <Slide>
                     <ActivityCard
-                      imgSrc={activity.attributes.media.banners[0].src}
+                      imgSrc={activity.attributes.media.banner.url}
                       index={index + 1}
                       title={activity.attributes.title}
                       onClick={event =>

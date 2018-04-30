@@ -24,7 +24,7 @@ export default class Activity extends React.Component {
         <Column small={8}>
           <Fade>
             <ActivityExpanded
-              imgSrc={this.state.activityBlob.data.attributes.media.banners[0].src}
+              imgSrc={this.state.activityBlob.data.attributes.media.banner.url}
               title={this.state.activityBlob.data.attributes.title}
               description={this.state.activityBlob.data.attributes.description}
             />
